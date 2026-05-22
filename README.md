@@ -60,17 +60,7 @@ User Logout
 
 Project Structure
 
-authentication-system/
-│
-├── app.py
-│
-└── static/
-    ├── login.html
-    ├── register.html
-    ├── dashboard.html
-    ├── style.css
-    └── script.js
-
+authentication-system/ - app.py. - static/ --> login.html --> register.html -->dashboard.html -->style.css -->script.js
 
 Required Packages
 
