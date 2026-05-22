@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — AuthSystem</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="page-loader"><div class="spinner"></div></div>
+
+<div class="auth-wrap">
+
+  <div class="brand-panel">
+    <div class="brand-logo">
+      <div class="logo-icon">🔐</div>
+      <span>AuthSystem</span>
+    </div>
+    <h1>Welcome Back.</h1>
+    <p>Sign in securely and access your personalized dashboard with full role-based protection.</p>
+
+    <div class="brand-features">
+      <div class="feat"><div class="dot"></div>Bcrypt password hashing</div>
+      <div class="feat"><div class="dot"></div>Secure Flask session management</div>
+      <div class="feat"><div class="dot"></div>Role-based access control</div>
+      <div class="feat"><div class="dot"></div>Protected API routes</div>
+    </div>
+  </div>
+
+  
+  <div class="form-panel">
+    <div class="form-header">
+      <h2>Sign In</h2>
+      <p class="subtitle">Enter your credentials to continue</p>
+    </div>
+
+    <div class="msg error" id="errMsg">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <span id="errText"></span>
+    </div>
+
+    <div class="input-group">
+      <i class="icon fa-solid fa-user"></i>
+      <input type="text" id="username" placeholder="Username" autocomplete="username">
+    </div>
+
+    <div class="input-group">
+      <i class="icon fa-solid fa-lock"></i>
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+      <button class="eye-toggle" type="button" onclick="toggleEye('password', this)">
+        <i class="fa-solid fa-eye"></i>
+      </button>
+    </div>
+
+    <div class="remember-row">
+      <input type="checkbox" id="remember">
+      <label for="remember">Remember me for 2 hours</label>
+    </div>
+
+    <button class="btn-primary" id="loginBtn" onclick="loginUser()">
+      <i class="fa-solid fa-arrow-right-to-bracket" style="margin-right:8px;"></i>
+      Sign In
+    </button>
+
+    <div class="alt-link">
+      Don't have an account? <a href="/register-page">Create one</a>
+    </div>
+  </div>
+</div>
+
+<script src="/static/script.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('page-loader');
+    loader.classList.add('hidden');
+  });
+  
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') loginUser();
+  });
+</script>
+</body>
+</html>

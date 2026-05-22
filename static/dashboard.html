@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — AuthSystem</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="page-loader"><div class="spinner"></div></div>
+
+<div class="dash-page">
+
+
+  <div class="dash-topbar">
+    <div class="brand">
+      <div class="logo-icon">🔐</div>
+      AuthSystem
+    </div>
+    <button class="btn-logout" onclick="logoutUser()">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </button>
+  </div>
+
+
+  <div class="dash-hero">
+    <div class="badge" id="roleBadge">
+      <i class="fa-solid fa-circle-dot" style="font-size:8px;"></i>
+      Loading…
+    </div>
+    <h1>Welcome back, <span id="welcomeName">—</span></h1>
+    <p>Your session is active and all your data is protected.</p>
+  </div>
+
+  
+  <div class="dash-grid">
+
+    <div class="stat-card">
+      <div class="card-icon purple">
+        <i class="fa-solid fa-user-shield"></i>
+      </div>
+      <h3>Account Role</h3>
+      <div class="value" id="roleVal">—</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="card-icon cyan">
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+      <h3>Email Address</h3>
+      <div class="value" id="emailVal" style="font-size:14px;word-break:break-all;">—</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="card-icon green">
+        <i class="fa-solid fa-calendar-check"></i>
+      </div>
+      <h3>Member Since</h3>
+      <div class="value" id="joinedVal" style="font-size:15px;">—</div>
+    </div>
+
+  </div>
+
+  
+  <div class="stat-card" style="margin-bottom:20px; display:flex; align-items:center; gap:14px; padding:20px 26px;">
+    <div class="card-icon green" style="margin-bottom:0; flex-shrink:0;">
+      <i class="fa-solid fa-shield-halved"></i>
+    </div>
+    <div>
+      <h3 style="margin-bottom:4px;">Session Status</h3>
+      <div class="value" style="font-size:15px;">
+        <span class="session-dot"></span> Protected &amp; Active
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="admin-section" id="adminSection" style="display:none;">
+    <h3><i class="fa-solid fa-users-gear"></i> All Registered Users</h3>
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Joined</th>
+        </tr>
+      </thead>
+      <tbody id="usersTableBody">
+        <tr><td colspan="5" style="color:var(--muted); padding-top:16px;">Loading…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById('page-loader').classList.add('hidden');
+  });
+  loadDashboard();
+</script>
+</body>
+</html>

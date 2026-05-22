@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — AuthSystem</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="page-loader"><div class="spinner"></div></div>
+
+<div class="auth-wrap">
+
+  
+  <div class="brand-panel">
+    <div class="brand-logo">
+      <div class="logo-icon">🔐</div>
+      <span>AuthSystem</span>
+    </div>
+    <h1>Join Us Today.</h1>
+    <p>Create your account and get instant access to a secure, role-based authenticated platform.</p>
+
+    <div class="brand-features">
+      <div class="feat"><div class="dot"></div>Passwords hashed with Bcrypt</div>
+      <div class="feat"><div class="dot"></div>Unique username &amp; email enforced</div>
+      <div class="feat"><div class="dot"></div>Admin &amp; user roles available</div>
+      <div class="feat"><div class="dot"></div>Zero plain-text storage</div>
+    </div>
+  </div>
+
+  
+  <div class="form-panel">
+    <div class="form-header">
+      <h2>Create Account</h2>
+      <p class="subtitle">Fill in the details below to get started</p>
+    </div>
+
+    <div class="msg error" id="errMsg">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <span id="errText"></span>
+    </div>
+    <div class="msg success" id="okMsg">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="okText"></span>
+    </div>
+
+    <div class="input-group">
+      <i class="icon fa-solid fa-user"></i>
+      <input type="text" id="username" placeholder="Username" autocomplete="username">
+    </div>
+
+    <div class="input-group">
+      <i class="icon fa-solid fa-envelope"></i>
+      <input type="email" id="email" placeholder="Email address" autocomplete="email">
+    </div>
+
+    <div class="input-group">
+      <i class="icon fa-solid fa-lock"></i>
+      <input type="password" id="password" placeholder="Password"
+             autocomplete="new-password" oninput="checkStrength(this.value)">
+      <button class="eye-toggle" type="button" onclick="toggleEye('password', this)">
+        <i class="fa-solid fa-eye"></i>
+      </button>
+      <div class="strength-bar-wrap" id="strengthWrap">
+        <div class="strength-bar" id="strengthBar"></div>
+      </div>
+      <div class="strength-label" id="strengthLabel"></div>
+    </div>
+
+    <div class="input-group">
+      <i class="icon fa-solid fa-shield-halved"></i>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" autocomplete="new-password">
+      <button class="eye-toggle" type="button" onclick="toggleEye('confirmPassword', this)">
+        <i class="fa-solid fa-eye"></i>
+      </button>
+    </div>
+
+    <button class="btn-primary" id="regBtn" onclick="registerUser()">
+      <i class="fa-solid fa-user-plus" style="margin-right:8px;"></i>
+      Create Account
+    </button>
+
+    <div class="alt-link">
+      Already have an account? <a href="/login-page">Sign in</a>
+    </div>
+  </div>
+</div>
+
+<script src="/static/script.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById('page-loader').classList.add('hidden');
+  });
+</script>
+</body>
+</html>
